@@ -1,0 +1,14 @@
+#include "doctest.h"
+#include <stdexcept>
+#include "sources/Fraction.hpp"
+using namespace std;
+using namespace ariel;
+
+TEST_CASE("Deviding by zero"){
+    CHECK_NOTHROW(Fraction(2, 68));
+    CHECK_THROWS(Fraction(9, 0));
+    CHECK_THROWS(Fraction(0, 0));    
+}
+
+TEST_CASE("")
+
