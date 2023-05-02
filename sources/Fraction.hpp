@@ -1,18 +1,25 @@
 #pragma once
 #include <iostream>
+
 using namespace std;
 namespace ariel{
     class Fraction{
         public:
+        Fraction();
         Fraction(int numerator, int denominator);
-        int getNumerator();
-        int getDenominator();
+        Fraction(float num);
+        Fraction(Fraction&& frac);
+        int getNumerator() const;
+        int getDenominator() const;
+        void setNumerator(int numerator_);
+        void setDenominator(int denominator_);
         
         //arithmetic operators
         Fraction operator+(const Fraction& other) const;
         Fraction operator-(const Fraction& other) const;
         Fraction operator*(const Fraction& other) const;
         Fraction operator/(const Fraction& other) const;
+        
         
         //comparison operators
         bool operator==(const Fraction& other) const;
@@ -34,6 +41,10 @@ namespace ariel{
         friend ostream& operator<<(ostream& os, const Fraction& obj);
         friend ostream& operator>>(ostream& os, const Fraction& f);
         
+        int gcd(int num1, int num2);
+        Fraction convertToFraction(float num);
+        Fraction convertToFraction(int num);
+
         private:
         int numerator;
         int denominator;
