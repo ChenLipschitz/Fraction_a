@@ -15,8 +15,23 @@ Fraction::Fraction(int numerator_, int denominator_){
     this->denominator = denominator_;
 }
 Fraction::Fraction(float num){
-
+    this->numerator = 0;
+    this->denominator = 1;
 }
+Fraction::Fraction(int num){
+    this->numerator = num;
+    this->denominator = 1;
+}
+Fraction::Fraction(const Fraction& other) {
+    // Copy constructor
+    this->numerator = other.getNumerator();
+    this->denominator = other.getDenominator();
+}
+// Fraction::Fraction(Fraction&& other) noexcept {
+//     // Copy constructor, was taken from ChatGpt
+//     this->numerator = std::move(other.getNumerator);
+//     this->denominator = std::move(other.getDenominator);
+// }
 
 ////////convert methods////////
 Fraction Fraction::convertToFraction(float num){
@@ -83,10 +98,27 @@ bool Fraction::operator<=(const Fraction& other) const{
 
 ////////increment and decrement methods////////
 Fraction& Fraction::operator++() const{
-    int temp = this->denominator+this->numerator;
+    int temp = this->denominator + this->numerator;
     setNumerator(temp);
-    int gcd_val = Fraction::gcd(numerator, denominator);
+    int gcd_val = gcd(numerator, denominator);
     numerator /= gcd_val;
     denominator /= gcd_val;
     return *this;
+}
+Fraction Fractiob::operator++(int) const{
+    return Fraction();
+}
+Fraction& Fraction::operator--() const{
+    return *this;
+}
+Fraction Fractiob::operator--(int) const{
+    return Fraction();
+}
+
+////////output/input stream////////
+friend ostream& Fraction::operator<<(ostream& os, const Fraction& obj){
+
+}
+friend ostream& Fraction::operator>>(ostream& os, const Fraction& f){
+
 }

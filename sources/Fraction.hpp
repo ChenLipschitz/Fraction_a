@@ -6,9 +6,11 @@ namespace ariel{
     class Fraction{
         public:
         Fraction();
+        Fraction(int num);
         Fraction(int numerator, int denominator);
         Fraction(float num);
-        Fraction(Fraction&& frac);
+        Fraction(const Fraction& other);
+        // Fraction(Fraction&& frac);  
         int getNumerator() const;
         int getDenominator() const;
         void setNumerator(int numerator_);
@@ -19,7 +21,6 @@ namespace ariel{
         Fraction operator-(const Fraction& other) const;
         Fraction operator*(const Fraction& other) const;
         Fraction operator/(const Fraction& other) const;
-        
         
         //comparison operators
         bool operator==(const Fraction& other) const;
