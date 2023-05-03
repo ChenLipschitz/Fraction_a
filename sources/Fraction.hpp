@@ -20,6 +20,11 @@ namespace ariel{
         Fraction operator-(const Fraction& other) const;
         Fraction operator*(const Fraction& other) const;
         Fraction operator/(const Fraction& other) const;
+
+        Fraction operator*(const float& other) const;   //fraction*float
+        friend Fraction operator * (const float& num, const Fraction& fraction) {   //float*fraction
+            return Fraction();
+        }
         
         //comparison operators
         bool operator==(const Fraction& other) const;

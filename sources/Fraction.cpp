@@ -17,6 +17,13 @@ Fraction::Fraction(int numerator_, int denominator_){
 Fraction::Fraction(float num){
     this->numerator = 0;
     this->denominator = 1;
+    // int num_digits = 1;
+    // float temp = num;
+    // while (temp < 1) {
+    //     temp *= 10;
+    //     num_digits *= 10;
+    // }
+    // Fraction(static_cast<int>(temp), num_digits);
 }
 Fraction::Fraction(const Fraction& other) {
     // Copy constructor
@@ -69,6 +76,14 @@ Fraction Fraction::operator*(const Fraction& other) const{
     return Fraction();
 }
 Fraction Fraction::operator/(const Fraction& other) const{
+    return Fraction();
+}
+
+Fraction Fraction::operator*(const float& other) const{ //fraction*float
+    // Fraction convFrc (other);
+    // convFrc = *this * convFrc;
+    // convFrc.reduce();
+    // return convFrc;
     return Fraction();
 }
 
