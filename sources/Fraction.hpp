@@ -8,21 +8,35 @@ namespace ariel{
         Fraction();
         Fraction(int numerator, int denominator);
         Fraction(float num);
-        Fraction(const Fraction& other);
-        // Fraction(Fraction&& frac);  
+        Fraction(const Fraction& other);    //copy constructor
         int getNumerator() const;
         int getDenominator() const;
         void setNumerator(int numerator_);
         void setDenominator(int denominator_);
         
-        //arithmetic operators
+        //arithmetic operators: fraction operator fraction
         Fraction operator+(const Fraction& other) const;
         Fraction operator-(const Fraction& other) const;
         Fraction operator*(const Fraction& other) const;
         Fraction operator/(const Fraction& other) const;
 
-        Fraction operator*(const float& other) const;   //fraction*float
-        friend Fraction operator * (const float& num, const Fraction& fraction) {   //float*fraction
+        //arithmetic operators: fraction operator float
+        Fraction operator+(const float& other) const;
+        Fraction operator-(const float& other) const;
+        Fraction operator*(const float& other) const;
+        Fraction operator/(const float& other) const;
+
+        //arithmetic operators: float operator fraction
+        friend Fraction operator + (const float& num, const Fraction& fraction) {
+            return Fraction();
+        }
+        friend Fraction operator - (const float& num, const Fraction& fraction) {
+            return Fraction();
+        }
+        friend Fraction operator * (const float& num, const Fraction& fraction) {
+            return Fraction();
+        }
+        friend Fraction operator / (const float& num, const Fraction& fraction) {
             return Fraction();
         }
         

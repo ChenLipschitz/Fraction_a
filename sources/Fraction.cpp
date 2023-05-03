@@ -4,7 +4,7 @@
 using namespace ariel;
 using namespace std;
 
-////////constructors////////
+//-------------------------- constructors --------------------------//
 Fraction::Fraction(){
     //by default create 0
     this->numerator = 0;
@@ -36,7 +36,7 @@ Fraction::Fraction(const Fraction& other) {
 //     this->denominator = std::move(other.getDenominator);
 // }
 
-////////convert methods////////
+//-------------------------- convert methods --------------------------//
 Fraction Fraction::convertToFraction(float num){
     return Fraction();
 }
@@ -51,7 +51,7 @@ int Fraction::gcd(int num1, int num2){
     return gcd(num2, num1%num2);
 }
 
-////////getters & setters////////
+//-------------------------- getters & setters --------------------------//
 int Fraction::getNumerator() const{
     return this->numerator;
 }
@@ -65,7 +65,7 @@ void Fraction::setDenominator(int denominator_){
     this->denominator = denominator_;
 }
 
-////////arithmetic operators////////
+//---------- arithmetic operators: fraction operator fraction ----------//
 Fraction Fraction::operator+(const Fraction& other) const{
   return Fraction();  
 } 
@@ -79,15 +79,21 @@ Fraction Fraction::operator/(const Fraction& other) const{
     return Fraction();
 }
 
-Fraction Fraction::operator*(const float& other) const{ //fraction*float
-    // Fraction convFrc (other);
-    // convFrc = *this * convFrc;
-    // convFrc.reduce();
-    // return convFrc;
+//---------- arithmetic operators: fraction operator float ----------//
+Fraction Fraction::operator+(const float& other) const{
+  return Fraction();  
+} 
+Fraction Fraction::operator-(const float& other) const{
+    return Fraction();
+}
+Fraction Fraction::operator*(const float& other) const{
+    return Fraction();
+}
+Fraction Fraction::operator/(const float& other) const{
     return Fraction();
 }
 
-////////comparison operators////////
+//----------------------- comparison operators -----------------------//
 bool Fraction::operator==(const Fraction& other) const{
     return true;
 }
@@ -107,7 +113,7 @@ bool Fraction::operator<=(const Fraction& other) const{
     return true;
 }
 
-////////increment and decrement methods////////
+//----------------- increment and decrement methods -----------------//
 Fraction& Fraction::operator++(){
     int temp = this->denominator + this->numerator;
     setNumerator(temp);
