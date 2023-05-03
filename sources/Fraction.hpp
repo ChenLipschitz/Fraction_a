@@ -67,7 +67,6 @@ namespace ariel{
         
         int gcd(int num1, int num2);
         Fraction convertToFraction(float num);
-        Fraction convertToFraction(int num);
 
         private:
         int numerator;

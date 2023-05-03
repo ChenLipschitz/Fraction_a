@@ -30,17 +30,9 @@ Fraction::Fraction(const Fraction& other) {
     this->numerator = other.getNumerator();
     this->denominator = other.getDenominator();
 }
-// Fraction::Fraction(Fraction&& other) noexcept {
-//     // Copy constructor, was taken from ChatGpt
-//     this->numerator = std::move(other.getNumerator);
-//     this->denominator = std::move(other.getDenominator);
-// }
 
-//-------------------------- convert methods --------------------------//
+//-------------------------- convert method --------------------------//
 Fraction Fraction::convertToFraction(float num){
-    return Fraction();
-}
-Fraction Fraction::convertToFraction(int num){
     return Fraction();
 }
 
