@@ -18,10 +18,6 @@ Fraction::Fraction(float num){
     this->numerator = 0;
     this->denominator = 1;
 }
-Fraction::Fraction(int num){
-    this->numerator = num;
-    this->denominator = 1;
-}
 Fraction::Fraction(const Fraction& other) {
     // Copy constructor
     this->numerator = other.getNumerator();
@@ -97,7 +93,7 @@ bool Fraction::operator<=(const Fraction& other) const{
 }
 
 ////////increment and decrement methods////////
-Fraction& Fraction::operator++() const{
+Fraction& Fraction::operator++(){
     int temp = this->denominator + this->numerator;
     setNumerator(temp);
     int gcd_val = gcd(numerator, denominator);
@@ -105,20 +101,13 @@ Fraction& Fraction::operator++() const{
     denominator /= gcd_val;
     return *this;
 }
-Fraction Fractiob::operator++(int) const{
+Fraction Fraction::operator++(int){
     return Fraction();
 }
-Fraction& Fraction::operator--() const{
+Fraction& Fraction::operator--(){
     return *this;
 }
-Fraction Fractiob::operator--(int) const{
+Fraction Fraction::operator--(int){
     return Fraction();
 }
 
-////////output/input stream////////
-friend ostream& Fraction::operator<<(ostream& os, const Fraction& obj){
-
-}
-friend ostream& Fraction::operator>>(ostream& os, const Fraction& f){
-
-}
