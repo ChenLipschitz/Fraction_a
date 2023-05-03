@@ -47,17 +47,24 @@ TEST_CASE("Arithmetic operators test"){
     Fraction frc5(8,4);
     Fraction frc6(-2,3);
     Fraction frc7(-3,7);
-    //both positive numbers
-    CHECK((frc1+frc2) == frc1);
-    CHECK((frc3-frc4) == Fraction(0.34));
-    CHECK((frc3*frc2) == Fraction(0));
-    CHECK((frc5/frc4) == Fraction(1,1));
-    //2 negativ numbers
-    CHECK((frc6+frc7) == Fraction(-23,21));
-    CHECK((frc6-frc7) == Fraction(-5,21));
-    // one negative and one positive
-    CHECK((frc6+frc4) == Fraction(4,3));
-    CHECK((frc7-frc1) == Fraction(-87,56));
+    SUBCASE("both positive numbers"){
+        CHECK((frc1+frc2) == frc1);
+        CHECK((frc3-frc4) == Fraction(0.34));
+        CHECK((frc3*frc2) == Fraction(0));
+        CHECK((frc5/frc4) == Fraction(1,1));
+    }
+    SUBCASE("2 negativ numbers"){
+        CHECK((frc6+frc7) == Fraction(-23,21));
+        CHECK((frc6-frc7) == Fraction(-5,21));
+        CHECK((frc6*frc7) == Fraction(2,7));
+        CHECK((frc6/frc7) == Fraction(14,9));
+    }
+    SUBCASE("one negative and one positive"){
+        CHECK((frc6+frc4) == Fraction(4,3));
+        CHECK((frc7-frc1) == Fraction(-87,56));
+        CHECK((frc7*frc1) == Fraction(-8,21));
+        CHECK((frc6/frc4) == Fraction(-1,3));
+    }
 }
 
 // TEST_CASE("Input/output streams test"){
@@ -92,17 +99,19 @@ TEST_CASE("Order of operations test"){
     Fraction frc2(7,1);
     Fraction frc3(86);
     Fraction frc4(45.556);
-    //commutative
-    CHECK(frc1 + frc2 == frc2 + frc1);
-    CHECK(frc3 * frc4 == frc4 * frc3);
-    CHECK(frc1 - frc2 != frc2 - frc1);
-    CHECK(frc1 + frc2 * frc3 - frc4 /frc1 == frc2 * frc3 - (frc4 /frc1) + frc1);
-    CHECK(frc1 * frc2 / frc3 == frc2 / frc3 *frc1);
-    //associative
-    CHECK((frc1 + frc2)*frc3 == frc1*frc3 + frc2*frc3);
-    CHECK((frc1 - frc2)*frc3 == frc1*frc3 - frc2*frc3);
-    CHECK((frc1 + frc2)/frc3 == frc1/frc3 + frc2/frc3);
-    CHECK((frc1 - frc2)/frc3 == frc1/frc3 - frc2/frc3);
+    SUBCASE("commutative"){
+        CHECK(frc1 + frc2 == frc2 + frc1);
+        CHECK(frc3 * frc4 == frc4 * frc3);
+        CHECK(frc1 - frc2 != frc2 - frc1);
+        CHECK(frc1 + frc2 * frc3 - frc4 /frc1 == frc2 * frc3 - (frc4 /frc1) + frc1);
+        CHECK(frc1 * frc2 / frc3 == frc2 / frc3 *frc1);
+    }
+    SUBCASE("associative"){
+        CHECK((frc1 + frc2)*frc3 == frc1*frc3 + frc2*frc3);
+        CHECK((frc1 - frc2)*frc3 == frc1*frc3 - frc2*frc3);
+        CHECK((frc1 + frc2)/frc3 == frc1/frc3 + frc2/frc3);
+        CHECK((frc1 - frc2)/frc3 == frc1/frc3 - frc2/frc3);
+    }
 }
 
 TEST_CASE("Increment and decrement methods test"){
@@ -118,7 +127,8 @@ TEST_CASE("Increment and decrement methods test"){
     CHECK(frc2 == Fraction(-1));
     ++frc3;
     --frc1;
-    /// RETURN TO HERE /////
+    CHECK(frc1 != copyFrc1);
+    CHECK(frc3 == Fraction(1673,500));
 }
 
 TEST_CASE("Comparison operators test"){
