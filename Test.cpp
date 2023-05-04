@@ -33,10 +33,12 @@ TEST_CASE("gcd test"){
     int gcd2 = frc2.gcd(frc2.getNumerator(), frc2.getDenominator());
     int gcd3 = frc3.gcd(frc3.getNumerator(), frc3.getDenominator());
     int gcd4 = frc4.gcd(frc4.getNumerator(), frc4.getDenominator());
-    CHECK(gcd1 == 72);
+    int gcd5 = frc3.gcd(frc1.getNumerator(),frc3.getDenominator());
+    CHECK(gcd1 == 1);
     CHECK(gcd2 == 1);
-    CHECK(gcd3 == 3);
+    CHECK_FALSE(gcd3 == 3);
     CHECK(gcd4 == 1);
+    CHECK(gcd5 == 3);
 }
 
 TEST_CASE("Arithmetic operators test"){
